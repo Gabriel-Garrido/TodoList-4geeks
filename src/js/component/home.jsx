@@ -6,7 +6,9 @@ const Home = () => {
 	
 	
 	return (
-		<div className="container">
+		<div className="container mb-8">
+
+			<h1 id="title" className="text-center fs-1 mb-8 pb-8">Todo List</h1>
 
 			<NewTask/>
 
