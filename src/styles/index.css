@@ -1,14 +1,30 @@
 body {
-    background: linear-gradient(to right, #bdc3c7, #2c3e50);
+    background: linear-gradient(to right, #bdc3c7, #c9d3dd);
 }
 #title {
     color: solid black;
-    text-shadow: 4px 4px 5px rgb(132, 129, 143);
+    text-shadow: 4px 4px 5px rgb(44, 43, 46);
     margin-bottom: 50px;
     margin-top: 30px;
     font-size: xxl;
 }
 
 li {
-    margin: 2px
+    margin: 2px;
 }
+
+li .badge {
+    display: none ;
+    background-color: rgb(219, 178, 178);
+    border: 0px;
+}
+
+li .badge:hover {
+    background-color: rgb(230, 100, 100);
+
+}
+
+li:hover .badge {
+    display: block ;
+}
+

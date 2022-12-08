@@ -8,7 +8,10 @@ function NewTask () {
 
     function addList(e) {
 	
-        if(e.key === 'Enter' && e.target.value != "") {
+        if (e.key === 'Enter' && tasks.includes(e.target.value)) {
+            alert("Esta tarea ya existe")
+            e.target.value = ""
+        }else if (e.key === 'Enter' && e.target.value != "") {
             setTasks([...tasks, e.target.value])
             e.target.value = ""
         }else if (e.key === 'Enter' && e.target.value == "") {
@@ -16,10 +19,9 @@ function NewTask () {
         }
     }
         return (
-            <div className='container mt-2 ml-4 mr-4'>
+            <div className='container mt-2 ml-4 mr-4 '>
                 <div className="input-group mb-3">
-                    <span className="input-group-text" id="inputGroup-sizing-default">Nueva tarea</span>
-                    <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"onKeyPress={(e) => addList(e)}></input>
+                    <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder='Nueva tarea, ej: cocinar' onKeyPress={(e) => addList(e)}></input>
                 </div>
 
                 <ol className="list-group">
@@ -32,10 +34,10 @@ function NewTask () {
                     {tasks.map((task, i) => {
                             return (
 
-                                <li key={i} className="list-group-item d-flex justify-content-between align-items-start">
+                                <li key={i} className="list-group-item d-flex justify-content-between align-items-start bg-light ">
                                     <div className="ms-2 me-auto">
                                         <div className="fw-bold">Tarea {i + 1}</div>{task}</div>
-                                    <Eliminar/>
+                                    <Eliminar i={i} tasks={tasks} setTasks={setTasks} />
                                     
                                 </li>
                             )
